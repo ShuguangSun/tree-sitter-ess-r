@@ -176,7 +176,10 @@
   [;; (arguments "=" @operator)
    ;; (formal_parameters "=" @operator)
    (function_definition "function" @keyword.function)
-   (["<-" "<<-" "->" "->>"] @assignment)
+   (["<-" "<<-" "->"] @assignment)
+   ((identifier) @assignment
+    ;; (.match? @modifier `,(concat "^(" (mapconcat 'identity ess-R-modifiers "|") ")")))
+    (.match? @assignment "^->>$"))
    (equals_assignment "=" @assignment)
    ;; (left_assignment name: (identifier) @varname)
    ;; (equals_assignment name: (identifier) @varname)
