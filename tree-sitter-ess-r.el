@@ -41,7 +41,7 @@
 
 (defface tree-sitter-ess-matrix-face
   '((default :inherit ess-matrix-face))
-  "Face for matrixs."
+  "Face for matrix."
   :group 'tree-sitter-ess-r)
 
 (defface tree-sitter-ess-operator-face
