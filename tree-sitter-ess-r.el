@@ -133,6 +133,10 @@
   "Face for dollar."
   :group 'tree-sitter-ess-r)
 
+(defface tree-sitter-ess-slot-face
+  '((default :inherit ess-operator-face))
+  "Face for slot."
+  :group 'tree-sitter-ess-r)
 
 (defface tree-sitter-ess-error-face
   '((default :inherit font-lock-warning-face))
@@ -185,7 +189,7 @@
    ;; (equals_assignment name: (identifier) @varname)
    ;; (right_assignment name: (identifier) @varname)
    (dollar "$" @dollar)
-   (dollar "@" @dollar)
+   (slot "@" @slot)
    (unary operator: ["-" "+" "!" "~"] @operatorunary)
    (binary operator: [
                       "<"
