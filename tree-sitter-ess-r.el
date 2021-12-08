@@ -118,7 +118,7 @@
 
 
 (defface tree-sitter-ess-method-face
-  '((default :inherit ess-function-face))
+  '((default :inherit tree-sitter-ess-function-face))
   "Face for method declarations and definitions."
   :group 'tree-sitter-ess-r)
 
@@ -164,7 +164,7 @@
   :group 'tree-sitter-ess-r)
 
 (defface tree-sitter-ess-parameter-face
-  '((default :inherit font-lock-builtin-face :weight normal)) ;;  :slant italic
+  '((default :inherit font-lock-builtin-face)) ;;  :slant italic ;;  :weight normal
   "Face for parameters."
   :group 'tree-sitter-ess-r)
 
@@ -180,10 +180,7 @@
   [;; (arguments "=" @operator)
    ;; (formal_parameters "=" @operator)
    (function_definition "function" @keyword.function)
-   (["<-" "<<-" "->"] @assignment)
-   ((identifier) @assignment
-    ;; (.match? @modifier `,(concat "^(" (mapconcat 'identity ess-R-modifiers "|") ")")))
-    (.match? @assignment "^->>$"))
+   (["<-" "<<-" "->" "->>"] @assignment)
    (equals_assignment "=" @assignment)
    ;; (left_assignment name: (identifier) @varname)
    ;; (equals_assignment name: (identifier) @varname)
@@ -206,9 +203,11 @@
    (binary operator: "|>" @operatorpipe)
    (binary operator: [":" "~"] @opspecial)
    (special) @opspecial
-   ((identifier) @modifier
-    ;; (.match? @modifier `,(concat "^(" (mapconcat 'identity ess-R-modifiers "|") ")")))
+   (call function: (identifier) @modifier
     (.match? @modifier "^(library|attach|detach|source|require|setwd|options|par|load|rm|message|warning|.Deprecated|signalCondition|withCallingHandlers)$"))
+   ;; ((identifier) @modifier
+   ;;  ;; (.match? @modifier `,(concat "^(" (mapconcat 'identity ess-R-modifiers "|") ")")))
+   ;;  (.match? @modifier "^(library|attach|detach|source|require|setwd|options|par|load|rm|message|warning|.Deprecated|signalCondition|withCallingHandlers)$"))
    ])
 
 
