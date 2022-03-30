@@ -200,9 +200,9 @@
                       "&&"
                       "&"
                       ] @operatorcomp)
-   (binary operator: "|>" @operatorpipe)
+   (["|>"] @operatorpipe)
    (binary operator: [":" "~"] @opspecial)
-   (special) @opspecial
+   ((special) @opspecial)
    (call function: (identifier) @modifier
     (.match? @modifier "^(library|attach|detach|source|require|setwd|options|par|load|rm|message|warning|.Deprecated|signalCondition|withCallingHandlers)$"))
    ;; ((identifier) @modifier
