@@ -13,7 +13,10 @@ Clone this repository, or install from MELPA. Add the following to your `.emacs`
 
 ``` elisp
 (require 'tree-sitter-ess-r)
+(add-hook 'ess-r-mode-hook 'tree-sitter-ess-r-mode-activate)
 ```
+
+or call interactively `M-x tree-sitter-ess-r-using-r-faces`
 
 ## Make tree-sitter to support r
 
