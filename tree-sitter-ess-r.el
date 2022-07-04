@@ -26,6 +26,12 @@
 
 ;; R with tree-sitter
 
+;; (require 'tree-sitter-ess-r)
+;; (add-hook 'ess-r-mode-hook 'tree-sitter-ess-r-mode-hook-fun)
+;; or
+;; M-x tree-sitter-ess-r-using-r-faces
+
+
 ;; Make tree-sitter to support r
 
 ;; Linux
@@ -59,143 +65,139 @@
   :group 'tree-sitter
   :prefix "tree-sitter-ess-r-")
 
-(defface tree-sitter-ess-matrix-face
+(defface tree-sitter-ess-r-matrix-face
   '((default :inherit ess-matrix-face))
   "Face for matrix."
   :group 'tree-sitter-ess-r)
 
-(defface tree-sitter-ess-operator-face
+(defface tree-sitter-ess-r-operator-face
   '((default :inherit ess-operator-face))
   "Face for operators."
   :group 'tree-sitter-ess-r)
 
-(defface tree-sitter-ess-punctuation.bracket-face
+(defface tree-sitter-ess-r-punctuation.bracket-face
   '((default :inherit ess-paren-face))
   "Face for brackets."
   :group 'tree-sitter-ess-r)
 
-(defface tree-sitter-ess-repeat-face
+(defface tree-sitter-ess-r-repeat-face
   '((default :inherit ess-keyword-face))
   "Face for repeat keyword."
   :group 'tree-sitter-ess-r)
 
-(defface tree-sitter-ess-assignment-face
+(defface tree-sitter-ess-r-assignment-face
   '((default :inherit ess-assignment-face)) ;; ess-assignment-face
   "Face for assignment."
   :group 'tree-sitter-ess-r)
 
-(defface tree-sitter-ess-opspecial-face
+(defface tree-sitter-ess-r-opspecial-face
   '((default :inherit ess-%op%-face))
   "Face for special `%...%'."
   :group 'tree-sitter-ess-r)
 
-(defface tree-sitter-ess-operatorcomp-face
+(defface tree-sitter-ess-r-operatorcomp-face
   '((default :inherit ess-operator-face))
   "Face for REL, OR and AND."
   :group 'tree-sitter-ess-r)
 
-(defface tree-sitter-ess-operatorpipe-face
+(defface tree-sitter-ess-r-operatorpipe-face
   '((default :inherit ess-%op%-face))
   "Face for `|>' operator."
   :group 'tree-sitter-ess-r)
 
-
-(defface tree-sitter-ess-function-face
+(defface tree-sitter-ess-r-function-face
   '((default :inherit ess-function-call-face))
   "Face for function all."
   :group 'tree-sitter-ess-r)
 
-(defface tree-sitter-ess-conditional-face
+(defface tree-sitter-ess-r-conditional-face
   '((default :inherit r-control-flow-keyword-face))
   "Face for control flow keyword."
   :group 'tree-sitter-ess-r)
 
-(defface tree-sitter-ess-keyword.function-face
+(defface tree-sitter-ess-r-keyword.function-face
   '((default :inherit ess-keyword-face))
   "Face for keyword.function."
   :group 'tree-sitter-ess-r)
 
-(defface tree-sitter-ess-float-face
+(defface tree-sitter-ess-r-float-face
   '((default :inherit ess-numbers-face))
   "Face for numbers."
   :group 'tree-sitter-ess-r)
 
-(defface tree-sitter-ess-number-face
+(defface tree-sitter-ess-r-number-face
   '((default :inherit ess-numbers-face))
   "Face for numbers."
   :group 'tree-sitter-ess-r)
 
-(defface tree-sitter-ess-modifier-face
+(defface tree-sitter-ess-r-modifier-face
   '((default :inherit ess-modifiers-face))
   "Face for modifiers."
   :group 'tree-sitter-ess-r)
 
-
-(defface tree-sitter-ess-boolean-face
+(defface tree-sitter-ess-r-boolean-face
   '((default :inherit ess-constant-face))
   "Face for boolean."
   :group 'tree-sitter-ess-r)
 
-
-(defface tree-sitter-ess-method-face
-  '((default :inherit tree-sitter-ess-function-face))
+(defface tree-sitter-ess-r-method-face
+  '((default :inherit tree-sitter-ess-r-function-face))
   "Face for method declarations and definitions."
   :group 'tree-sitter-ess-r)
 
-(defface tree-sitter-ess-namespace-face
+(defface tree-sitter-ess-r-namespace-face
   '((default :inherit ess-function-face))
   "Face for namespace."
   :group 'tree-sitter-ess-r)
 
-
-(defface tree-sitter-ess-dollar-face
+(defface tree-sitter-ess-r-dollar-face
   '((default :inherit ess-operator-face))
   "Face for dollar."
   :group 'tree-sitter-ess-r)
 
-(defface tree-sitter-ess-slot-face
+(defface tree-sitter-ess-r-slot-face
   '((default :inherit ess-operator-face))
   "Face for slot."
   :group 'tree-sitter-ess-r)
 
-(defface tree-sitter-ess-error-face
+(defface tree-sitter-ess-r-error-face
   '((default :inherit font-lock-warning-face))
   "Face for errors."
   :group 'tree-sitter-ess-r)
 
-(defface tree-sitter-ess-comment-face
+(defface tree-sitter-ess-r-comment-face
   '((default :inherit font-lock-comment-face))
   "Face for comments."
   :group 'tree-sitter-ess-r)
 
-(defface tree-sitter-ess-string-face
+(defface tree-sitter-ess-r-string-face
   '((default :inherit font-lock-string-face))
   "Face for strings."
   :group 'tree-sitter-ess-r)
 
-(defface tree-sitter-ess-doc-face
+(defface tree-sitter-ess-r-doc-face
   '((default :inherit font-lock-doc-face))
   "Face for docs."
   :group 'tree-sitter-ess-r)
 
-(defface tree-sitter-ess-operatorunary-face
+(defface tree-sitter-ess-r-operatorunary-face
   '((default :inherit font-lock-warning-face))
   "Face for some unary operator."
   :group 'tree-sitter-ess-r)
 
-(defface tree-sitter-ess-parameter-face
+(defface tree-sitter-ess-r-parameter-face
   '((default :inherit font-lock-builtin-face)) ;;  :slant italic ;;  :weight normal
   "Face for parameters."
   :group 'tree-sitter-ess-r)
 
-(defface tree-sitter-ess-varname-face
+(defface tree-sitter-ess-r-varname-face
   '((default :inherit font-lock-variable-name-face)) ;;  :slant italic
   "Face for variable names."
   :group 'tree-sitter-ess-r)
 
 (add-to-list 'tree-sitter-major-mode-language-alist '(ess-r-mode . r))
 
-;; Highlight Python's single-quoted strings as constants.
+;; Some additional patterns.
 (tree-sitter-hl-add-patterns 'r
   [;; (arguments "=" @operator)
    ;; (formal_parameters "=" @operator)
@@ -231,25 +233,30 @@
    ])
 
 
-(defun tree-sitter-hl-face-from-ess-scope (capture-name)
+(defun tree-sitter-ess-r-hl-face-from-ess-scope (capture-name)
   "Return the default face used to highlight CAPTURE-NAME."
   ;; TODO: If a scope does not have a corresponding face, check its ancestors.
   ;; (print capture-name)
   (pcase capture-name
     ("operator")
-    (_ (intern (format "tree-sitter-ess-%s-face" capture-name)))))
-
-
+    (_ (intern (format "tree-sitter-ess-r-%s-face" capture-name)))))
 
 (defun tree-sitter-ess-r-mode-hook-fun ()
+  "Hook to turn on tree-sitter-hl-mode."
   (setq-local tree-sitter-hl-face-mapping-function
-              #'tree-sitter-hl-face-from-ess-scope)
+              #'tree-sitter-ess-r-hl-face-from-ess-scope)
   (if (tree-sitter-require 'r)
-      (tree-sitter-hl-mode)))
+      (tree-sitter-hl-mode 1)))
 
-(add-hook 'ess-r-mode-hook 'tree-sitter-ess-r-mode-hook-fun)
+;; (add-hook 'ess-r-mode-hook 'tree-sitter-ess-r-mode-hook-fun)
 
-
+;;;###autoload
+(defun tree-sitter-ess-r-using-r-faces ()
+  "Turn on tree-sitter-hl-mode with ess-r-mode faces."
+  (interactive)
+  (add-hook 'ess-r-mode-hook 'tree-sitter-ess-r-mode-hook-fun)
+  (if (tree-sitter-require 'r)
+      (tree-sitter-hl-mode 1)))
 
 
 (provide 'tree-sitter-ess-r)
