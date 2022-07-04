@@ -27,7 +27,7 @@
 ;; R with tree-sitter
 
 ;; (require 'tree-sitter-ess-r)
-;; (add-hook 'ess-r-mode-hook 'tree-sitter-ess-r-mode-hook-fun)
+;; (add-hook 'ess-r-mode-hook 'tree-sitter-ess-r-mode-activate)
 ;; or
 ;; M-x tree-sitter-ess-r-using-r-faces
 
@@ -241,20 +241,18 @@
     ("operator")
     (_ (intern (format "tree-sitter-ess-r-%s-face" capture-name)))))
 
-(defun tree-sitter-ess-r-mode-hook-fun ()
+(defun tree-sitter-ess-r-mode-activate ()
   "Hook to turn on tree-sitter-hl-mode."
   (setq-local tree-sitter-hl-face-mapping-function
               #'tree-sitter-ess-r-hl-face-from-ess-scope)
   (if (tree-sitter-require 'r)
       (tree-sitter-hl-mode 1)))
 
-;; (add-hook 'ess-r-mode-hook 'tree-sitter-ess-r-mode-hook-fun)
-
 ;;;###autoload
 (defun tree-sitter-ess-r-using-r-faces ()
   "Turn on tree-sitter-hl-mode with ess-r-mode faces."
   (interactive)
-  (add-hook 'ess-r-mode-hook 'tree-sitter-ess-r-mode-hook-fun)
+  (add-hook 'ess-r-mode-hook #'tree-sitter-ess-r-mode-activate)
   (if (tree-sitter-require 'r)
       (tree-sitter-hl-mode 1)))
 
