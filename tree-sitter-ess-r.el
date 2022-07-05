@@ -4,8 +4,8 @@
 
 ;; Author: Shuguang Sun <shuguang79@qq.com>
 ;; Created: 2021/11/30
-;; Version: 0.1
-;; URL: https://github.com/ShuguangSun/ess-view-data
+;; Version: 1.0
+;; URL: https://github.com/ShuguangSun/tree-sitter-ess-r
 ;; Package-Requires: ((emacs "26.1") (ess "18.10.1") (tree-sitter "0.12.1") (tree-sitter-langs "0.12.0"))
 ;; Keywords: tools
 
