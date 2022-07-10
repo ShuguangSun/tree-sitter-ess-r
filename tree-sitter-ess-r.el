@@ -1,6 +1,6 @@
 ;;; tree-sitter-ess-r.el --- R with tree-sitter  -*- lexical-binding: t; -*-
 
-;; Copyright (C) 2021  Shuguang Sun
+;; Copyright (C) 2021-2022  Shuguang Sun
 
 ;; Author: Shuguang Sun <shuguang79@qq.com>
 ;; Created: 2021/11/30
