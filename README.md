@@ -23,7 +23,7 @@ or call interactively `M-x tree-sitter-ess-r-using-r-faces`
 Linux
 
 1. git clone https://github.com/r-lib/tree-sitter-r.git
-2. gcc ./src/parser.c -fPIC -I./ --shared -o r.so
+2. gcc ./src/parser.c ./src/scanner.cc -lstdc++ -fPIC -I./ -I./src/ -I./src/tree_sitter --shared -o r.so
 3. cp ./r.so /path/to/tree-sitter-langs/langs/bin (/path/to/tree-sitter-langs/ is path of your tree-sitter-langs package)
 4. mkdir /path/to/tree-sitter-langs/queries/r
 5. cp ./queries/* /path/to/tree-sitter-langs/queries/r
@@ -32,10 +32,8 @@ Linux
 Windows (MINGW64)
 
 1. git clone https://github.com/r-lib/tree-sitter-r.git
-2. gcc ./src/parser.c -fPIC -I./ -I./src/ --shared -o r.dll
+2. gcc ./src/parser.c ./src/scanner.cc -lstdc++ -fPIC -I./ -I./src/ -I./src/tree_sitter --shared -o r.dll
 3. cp ./r.dll /path/to/tree-sitter-langs/langs/bin (/path/to/tree-sitter-langs/ is path of your tree-sitter-langs package)
 4. mkdir /path/to/tree-sitter-langs/queries/r
 5. cp ./queries/* /path/to/tree-sitter-langs/queries/r
 
-If it fails, please try:
-`gcc ./src/parser.c ./src/scanner.cc -lstdc++ -fPIC -I./ -I./src/ -I./src/tree_sitter --shared -o r.dll`
