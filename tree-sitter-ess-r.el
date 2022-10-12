@@ -144,7 +144,7 @@
   :group 'tree-sitter-ess-r)
 
 (defface tree-sitter-ess-r-namespace-face
-  '((default :inherit ess-function-face))
+  '((default :inherit ess-function-call-face))
   "Face for namespace."
   :group 'tree-sitter-ess-r)
 
