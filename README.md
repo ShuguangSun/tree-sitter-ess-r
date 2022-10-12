@@ -1,6 +1,6 @@
-[![MELPA](https://melpa.org/packages/qpdf-badge.svg)](https://melpa.org/#/qpdf)
-[![MELPA Stable](https://stable.melpa.org/packages/qpdf-badge.svg)](https://stable.melpa.org/#/qpdf)
-[![Build Status](https://github.com/ShuguangSun/qpdf.el/workflows/CI/badge.svg)](https://github.com/ShuguangSun/qpdf.el/actions)
+[![MELPA](https://melpa.org/packages/tree-sitter-ess-r-badge.svg)](https://melpa.org/#/tree-sitter-ess-r)
+[![MELPA Stable](https://stable.melpa.org/packages/tree-sitter-ess-r-badge.svg)](https://stable.melpa.org/#/tree-sitter-ess-r)
+[![Build Status](https://github.com/ShuguangSun/tree-sitter-ess-r/workflows/CI/badge.svg)](https://github.com/ShuguangSun/tree-sitter-ess-r/actions)
 [![License](http://img.shields.io/:license-gpl3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0.html)
 
 # tree-sitter-ess-r
@@ -36,4 +36,3 @@ Windows (MINGW64)
 3. cp ./r.dll /path/to/tree-sitter-langs/langs/bin (/path/to/tree-sitter-langs/ is path of your tree-sitter-langs package)
 4. mkdir /path/to/tree-sitter-langs/queries/r
 5. cp ./queries/* /path/to/tree-sitter-langs/queries/r
-
