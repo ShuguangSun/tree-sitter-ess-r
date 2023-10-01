@@ -1,7 +1,8 @@
 [![MELPA](https://melpa.org/packages/tree-sitter-ess-r-badge.svg)](https://melpa.org/#/tree-sitter-ess-r)
 [![MELPA Stable](https://stable.melpa.org/packages/tree-sitter-ess-r-badge.svg)](https://stable.melpa.org/#/tree-sitter-ess-r)
-[![Build Status](https://github.com/ShuguangSun/tree-sitter-ess-r/workflows/CI/badge.svg)](https://github.com/ShuguangSun/tree-sitter-ess-r/actions)
+[![Build Status](https://github.com/ShuguangSun/tree-sitter-ess-r/actions/workflows/ci.yml/badge.svg)](https://github.com/ShuguangSun/tree-sitter-ess-r/actions)
 [![License](http://img.shields.io/:license-gpl3-blue.svg)](http://www.gnu.org/licenses/gpl-3.0.html)
+
 
 # tree-sitter-ess-r
 
