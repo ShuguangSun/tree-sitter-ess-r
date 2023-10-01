@@ -52,7 +52,7 @@ cp ./queries/* /path/to/tree-sitter-langs/queries/r
 ``` bash
 git clone https://github.com/r-lib/tree-sitter-r.git
 gcc ./src/parser.c ./src/scanner.c -lstdc++ -fPIC -I./ -I./src/ -I./src/tree_sitter --shared -o r.dll
-cp ./r.dll /path/to/tree-sitter-langs/langs/bin (/path/to/tree-sitter-langs/ is path of your tree-sitter-langs package)
+cp ./r.dll /path/to/tree-sitter-langs/langs/bin
 mkdir /path/to/tree-sitter-langs/queries/r
 cp ./queries/* /path/to/tree-sitter-langs/queries/r
 ```
