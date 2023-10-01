@@ -30,7 +30,11 @@ or call interactively `M-x tree-sitter-ess-r-using-r-faces`
 
 ## Make tree-sitter to support R
 
-`/path/to/tree-sitter-langs/` is the path of your
+You can install the [tree-sitter-langs](https://github.com/emacs-tree-sitter/tree-sitter-langs) which includes support
+for R along with a number of other languages. Alternatively if you want to only add support for `tree-sitter-ess-r` to
+your existing Tree-sitter languages you can install manually.
+
+In the following `/path/to/tree-sitter-langs/` is the path of your
 [tree-sitter-langs](https://github.com/emacs-tree-sitter/tree-sitter-langs) package.
 
 ### Linux
