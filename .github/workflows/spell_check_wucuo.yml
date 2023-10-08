@@ -16,6 +16,7 @@ jobs:
       matrix:
         emacs_version:
           - 27.2
+          - 29.1
 
     steps:
     - uses: purcell/setup-emacs@master
