@@ -197,7 +197,7 @@
 
 ;; Some additional patterns.
 (tree-sitter-hl-add-patterns 'r
-  [(function_definition "function" @keyword.function)
+  [(function_definition name: "function" @keyword.function)
    (binary_operator operator: ["=" "<-" "<<-" "->" "->>"] @assignment)
    (extract_operator operator: "$" @dollar)
    (extract_operator operator: "@" @slot)
@@ -217,6 +217,13 @@
    (binary_operator operator: ["|>"] @operatorpipe)
    (binary_operator operator: [":" "~"] @opspecial)
    (binary_operator operator: "special" @opspecial)
+   ([(return) (next) (break)
+     (true) (false)
+     (null) (inf) (nan) (na)
+     (dots) (dot_dot_i)
+     ] @repeat)
+   ;; (parameter name: (identifier) @parameter)
+   ;; (argument name: (identifier) @parameter)
    (call function: (identifier) @modifier
     (.match? @modifier "^(library|attach|detach|source|require|setwd|options|par|load|rm|message|warning|.Deprecated|signalCondition|withCallingHandlers)$"))
    ;; ((identifier) @modifier
