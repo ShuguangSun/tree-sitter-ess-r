@@ -198,9 +198,15 @@
 ;; Some additional patterns.
 (tree-sitter-hl-add-patterns 'r
   [(function_definition name: "function" @keyword.function)
+   (binary_operator
+    lhs: (identifier) @function
+    operator: "<-"
+    rhs: (function_definition))
+   (binary_operator
+    lhs: (identifier) @varname
+    operator: "<-"
+    rhs: (_))
    (binary_operator operator: ["=" "<-" "<<-" "->" "->>"] @assignment)
-   (extract_operator operator: "$" @dollar)
-   (extract_operator operator: "@" @slot)
    (unary_operator operator: ["-" "+" "!" "~"] @operatorunary)
    (binary_operator operator: [
                                "<"
@@ -217,13 +223,22 @@
    (binary_operator operator: ["|>"] @operatorpipe)
    (binary_operator operator: [":" "~"] @opspecial)
    (binary_operator operator: "special" @opspecial)
-   ([(return) (next) (break)
-     (true) (false)
+   (extract_operator
+    lhs: (identifier) @varname
+    operator: "$" @dollar
+    rhs: (_) @parameter)
+   (extract_operator
+    lhs: (identifier) @varname
+    operator: "@" @slot
+    rhs: (_) @method)
+   ([(return) (next) (break)] @repeat)
+   ([(true) (false)
      (null) (inf) (nan) (na)
      (dots) (dot_dot_i)
-     ] @repeat)
+     ] @boolean)
    ;; (parameter name: (identifier) @parameter)
    ;; (argument name: (identifier) @parameter)
+   (for_statement variable: (identifier) @varname)
    (call function: (identifier) @modifier
     (.match? @modifier "^(library|attach|detach|source|require|setwd|options|par|load|rm|message|warning|.Deprecated|signalCondition|withCallingHandlers)$"))
    ;; ((identifier) @modifier
