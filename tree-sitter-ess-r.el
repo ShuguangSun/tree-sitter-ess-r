@@ -4,7 +4,7 @@
 
 ;; Author: Shuguang Sun <shuguang79@qq.com>
 ;; Created: 2021/11/30
-;; Version: 1.0
+;; Version: 1.1
 ;; URL: https://github.com/ShuguangSun/tree-sitter-ess-r
 ;; Package-Requires: ((emacs "26.1") (ess "18.10.1") (tree-sitter "0.12.1") (tree-sitter-langs "0.12.0"))
 ;; Keywords: tools
@@ -197,32 +197,26 @@
 
 ;; Some additional patterns.
 (tree-sitter-hl-add-patterns 'r
-  [;; (arguments "=" @operator)
-   ;; (formal_parameters "=" @operator)
-   (function_definition "function" @keyword.function)
-   (["<-" "<<-" "->" "->>"] @assignment)
-   (equals_assignment "=" @assignment)
-   ;; (left_assignment name: (identifier) @varname)
-   ;; (equals_assignment name: (identifier) @varname)
-   ;; (right_assignment name: (identifier) @varname)
-   (dollar "$" @dollar)
-   (slot "@" @slot)
-   (unary operator: ["-" "+" "!" "~"] @operatorunary)
-   (binary operator: [
-                      "<"
-                      ">"
-                      "<="
-                      ">="
-                      "=="
-                      "!="
-                      "||"
-                      "|"
-                      "&&"
-                      "&"
-                      ] @operatorcomp)
-   (["|>"] @operatorpipe)
-   (binary operator: [":" "~"] @opspecial)
-   ((special) @opspecial)
+  [(function_definition "function" @keyword.function)
+   (binary_operator operator: ["=" "<-" "<<-" "->" "->>"] @assignment)
+   (extract_operator operator: "$" @dollar)
+   (extract_operator operator: "@" @slot)
+   (unary_operator operator: ["-" "+" "!" "~"] @operatorunary)
+   (binary_operator operator: [
+                               "<"
+                               ">"
+                               "<="
+                               ">="
+                               "=="
+                               "!="
+                               "||"
+                               "|"
+                               "&&"
+                               "&"
+                               ] @operatorcomp)
+   (binary_operator operator: ["|>"] @operatorpipe)
+   (binary_operator operator: [":" "~"] @opspecial)
+   (binary_operator operator: "special" @opspecial)
    (call function: (identifier) @modifier
     (.match? @modifier "^(library|attach|detach|source|require|setwd|options|par|load|rm|message|warning|.Deprecated|signalCondition|withCallingHandlers)$"))
    ;; ((identifier) @modifier
@@ -240,7 +234,7 @@
     (_ (intern (format "tree-sitter-ess-r-%s-face" capture-name)))))
 
 (defun tree-sitter-ess-r-mode-activate ()
-  "Hook to turn on tree-sitter-hl-mode."
+  "Hook to turn on `tree-sitter-hl-mode'."
   (setq-local tree-sitter-hl-face-mapping-function
               #'tree-sitter-ess-r-hl-face-from-ess-scope)
   (if (tree-sitter-require 'r)
@@ -248,7 +242,7 @@
 
 ;;;###autoload
 (defun tree-sitter-ess-r-using-r-faces ()
-  "Turn on tree-sitter-hl-mode with ess-r-mode faces."
+  "Turn on `tree-sitter-hl-mode' with `ess-r-mode' faces."
   (interactive)
   (add-hook 'ess-r-mode-hook #'tree-sitter-ess-r-mode-activate)
   (if (tree-sitter-require 'r)
