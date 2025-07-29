@@ -109,7 +109,7 @@
   :group 'tree-sitter-ess-r)
 
 (defface tree-sitter-ess-r-conditional-face
-  '((default :inherit r-control-flow-keyword-face))
+  '((default :inherit ess-r-control-flow-keyword-face))
   "Face for control flow keyword."
   :group 'tree-sitter-ess-r)
 
